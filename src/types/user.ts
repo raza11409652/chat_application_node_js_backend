@@ -2,6 +2,7 @@ export type NewUser = {
   username: string;
   password: string;
   name?: string;
+  avatarBackground?: string;
 };
 export type SessionPayload = {
   _id: string;

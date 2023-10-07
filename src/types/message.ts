@@ -21,4 +21,5 @@ export type NewMessage = {
   content: Message;
   sender: Types.ObjectId;
   receiver: Types.ObjectId;
+  participants: Array<Types.ObjectId>;
 };

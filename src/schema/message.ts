@@ -24,10 +24,14 @@ const messageSchema = new mongoose.Schema(
       type: Array<string>,
       default: [],
     },
+    participants: {
+      type: Array<Types.ObjectId>,
+      default: [],
+    },
   },
   { timestamps: true, collection: 'messages' },
 );
 messageSchema.index({ sender: 1, receiver: 1 });
-messageSchema.index({ sender: 1, receiver: 1, createdAt: 1 });
+messageSchema.index({ participants: 1, createdAt: 1 });
 
 export default mongoose.model('messages', messageSchema);

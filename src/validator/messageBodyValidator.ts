@@ -27,7 +27,7 @@ export const validateMessageRequestBody = [
 export const validateMessageListQuery = [
   query('user').isMongoId(),
   query('skip').isNumeric(),
-  query('size').isNumeric(),
+  // query('size').isNumeric(),
   (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

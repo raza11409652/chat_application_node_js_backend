@@ -4,6 +4,7 @@ import userService from '../service/userService';
 import { compareBcryptHash, createBcryptHash } from '../utils/bcrypt';
 import { getUUID } from '../utils/uuid';
 import { createJwtToken } from '../utils/jwt';
+import { getAvatarColor } from '../utils/avatar';
 // userService
 class AuthController {
   async login(req: Request, res: Response) {
@@ -42,7 +43,9 @@ class AuthController {
       const data = await userService.getUserByUsername(b.username);
       if (data) throw new Error('Username is already used');
       b.password = createBcryptHash(b.password);
-      const user = (await userService.newUser(b)).toObject();
+      const user = (
+        await userService.newUser({ ...b, avatarBackground: getAvatarColor() })
+      ).toObject();
       // JWT Token generation
       const sessionId = getUUID();
       const p: SessionPayload = {
