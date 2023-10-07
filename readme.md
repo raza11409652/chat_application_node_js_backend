@@ -27,4 +27,4 @@
    - App will start at PORT passed in env port by default if you want to change this you can pass --port in while running npm run dev (You can change port in env with this key)
    > PORT =
 
-If you are looking for web app you can find  [here](https://github.com/raza11409652/chat_application_node_js_backend) 
+If you are looking for web app you can find  [here](https://github.com/raza11409652/chat_application_web_app_react) 
